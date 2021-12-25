@@ -81,14 +81,14 @@ public class SweetBoxImpl implements SweetBox {
     }
 
     @Override
-    public void smartGiftOptimizationByPrice(double requiredPrice) {
+    public void smartGiftOptimizationByPrice(double requiredWeight) {
 
-        if (requiredPrice <= 0.0) {
+        if (requiredWeight <= 0.0) {
             sweetList.clear();
             return;
         }
 
-        double totalPrice = searchPriceOfSweetBox();
+        double weightOfBox = searchWeight();
 
         Collections.sort(this.sweetList, new Comparator<Sweets>() {
             @Override
@@ -103,10 +103,10 @@ public class SweetBoxImpl implements SweetBox {
             }
         });
         while (true) {
-            if (totalPrice <= requiredPrice) {
+            if (weightOfBox <= requiredWeight) {
                 break;
             } else {
-                totalPrice -= sweetList.get(0).getPrice();
+                weightOfBox -= sweetList.get(0).getWeight();
                 sweetList.remove(0);
             }
         }
