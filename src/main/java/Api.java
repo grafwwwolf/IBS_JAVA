@@ -6,7 +6,8 @@ import java.util.*;
 
 public class Api {
 
-    static String path = "C:\\Users\\Стас\\Desktop\\IBS_HW1_git\\ibs_homeWork1_git\\Potterrus.txt";
+    static String path = "C:\\Users\\Стас\\Desktop\\IBS_HW1_git\\ibs_homeWork1_git\\Potter.txt";
+//    static String path = null;
 
     public static void main(String[] args) {
 
@@ -18,8 +19,7 @@ public class Api {
         try {
             Path filePath = Paths.get(path);
             String absolutePath = filePath.toAbsolutePath().toString();
-            System.out.println(absolutePath);
-            countingWordToMap(readTextFromFile(path));
+            countingWordToMap(readTextFromFile(absolutePath));
         } catch (NullPointerException e) {
             System.out.println("В качестве пути к файлу было передано Null.");
         } catch (FileNotFoundException e) {
