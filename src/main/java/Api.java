@@ -6,14 +6,28 @@ import java.util.*;
 
 public class Api {
 
-    static String path = "C:\\Users\\Стас\\Desktop\\IBS_HW1_git\\ibs_homeWork1_git\\Potter.txt";
-//    static String path = null;
+//        static String path = "C:\\Users\\Стас\\Desktop\\IBS_HW1_git\\ibs_homeWork1_git\\Potterrus.txt";
+//    static String path = "F:\\JavaProjects\\IBS_JAVA\\src\\main\\java\\Potter.txt";
+//    static String path = "main\\java\\Potter.txt";
+    static String path = "test\\Potter.txt";
 
     public static void main(String[] args) {
+
+        Path filePath = Paths.get(path).toAbsolutePath();
+        System.out.println(filePath);
+        Path fileName = filePath.getFileName();
+        System.out.println(fileName);
+        Path fileRoot = filePath.getRoot();
+        System.out.println(fileRoot);
+        System.out.println(filePath.getParent());
+        Path filePath2 = Paths.get(path);
+        System.out.println(filePath2.getParent());
+
 
         fileTextStat(path);
 
     }
+
     // метод к ДЗ:
     public static void fileTextStat(String path) {
         try {
@@ -30,7 +44,6 @@ public class Api {
             e.printStackTrace();
         }
     }
-
 
 
 //      Вспомогательные методы, можно и без них, но так красивее)):
@@ -96,4 +109,5 @@ public class Api {
             }
         }
     }
+
 }
